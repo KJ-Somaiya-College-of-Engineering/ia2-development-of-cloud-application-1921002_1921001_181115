@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavbar from './components/AppNavbar';
@@ -7,10 +8,19 @@ import {Container} from 'reactstrap';
 
 import {Provider} from 'react-redux';
 import store from './store';
+import { loadUser } from './actions/authActions'
 
 
-function App() {
-  return (
+class App extends React.Component{
+
+  componentDidMount(){
+    store.dispatch(loadUser());
+  }
+
+
+render()
+  {
+    return (
     <Provider store={store} >
       <div className="App">
         <AppNavbar />
@@ -21,6 +31,7 @@ function App() {
       </div>
     </Provider>
   );
+}
 }
 
 export default App;

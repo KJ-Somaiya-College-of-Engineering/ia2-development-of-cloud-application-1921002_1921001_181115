@@ -50,11 +50,15 @@ class ItemModal extends Component {
     render() {
         return (
             <div>
-                <Button
+
+                { this.props.isAuthenticated ? <Button
                 color="dark"
                 style={{marginBottom:'2rem'}}
                 onClick={this.toggle}
-                >Add Item</Button>
+                >Add Item</Button> :
+                <h4 className="mb-3 ml-4" >Please Login to manage items!!</h4>
+                }
+                
                 <Modal isOpen={this.state.modal}  toggle={this.toggle} >
                     <ModalHeader toggle={this.toggle} >Add To Shopping List</ModalHeader>
                     <ModalBody>
@@ -70,7 +74,7 @@ class ItemModal extends Component {
                                 />
                                 <Button
                                 color="dark"
-                                style={{marginTop: '2rem'}}>
+                                style={{marginTop: '2rem'}} block>
                                 Add Item</Button>
                             </FormGroup>
                         </Form>
@@ -81,4 +85,9 @@ class ItemModal extends Component {
     }
 }
 
-export default connect(null,{ addItem })(ItemModal);
+const mapStateToProps = (state) => ({
+    isAuthenticated: state.auth.isAuthenticated
+}) 
+
+
+export default connect(mapStateToProps,{ addItem })(ItemModal);
