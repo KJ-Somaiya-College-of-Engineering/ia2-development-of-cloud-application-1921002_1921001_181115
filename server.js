@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 //DB config
-const db = config.get('mongoURILocal');
+const db = config.get('mongoURI');
 
 mongoose
     .connect(db,{ useUnifiedTopology: true ,useNewUrlParser: true, useCreateIndex: true})
