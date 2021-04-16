@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 
-//Item model
+//User model
 const User = require('../../models/User');
 
 // @route POST api/users
-// @desc Post an item
+// @desc Create a user
 // @access Public
 router.post('/',(req,res) => {
    const { name, email, password } = req.body;
@@ -28,7 +28,7 @@ router.post('/',(req,res) => {
          password
       });
    
-      bcrypt.genSalt(10, (err, salt) => {
+      bcrypt.genSalt(10, (err, salt) => {r
          bcrypt.hash(newUser.password, salt, (err, hash) => {
             if(err) throw err;
             newUser.password = hash;
