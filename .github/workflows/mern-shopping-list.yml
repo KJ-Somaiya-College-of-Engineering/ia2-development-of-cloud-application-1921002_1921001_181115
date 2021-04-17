@@ -30,4 +30,4 @@ jobs:
 #       run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
 #     - run: git fetch --all --unshallow
     - name: Deploy backend to heroku
-      run: git fetch --all --unshallow && git push --force heroku master
+      run: git fetch --unshallow master && git push --force heroku master
