@@ -25,6 +25,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm i --prefix client
     - run: npm run build --if-present --prefix client
+    - run: npm install
+    - run: npm test
 #     - run: npm test --prefix client
 #     - name: Add remote origin
 #       run: git remote add heroku https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git
