@@ -11,7 +11,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
     "heroku-prebuild": "npm install pm2 -g",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
-    "test": "mocha"
+    "test": "mocha --exit"
   },
   "author": "Pranav Ahuja",
   "license": "MIT",
