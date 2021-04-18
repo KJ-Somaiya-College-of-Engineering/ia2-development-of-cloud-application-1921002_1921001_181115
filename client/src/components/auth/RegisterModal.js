@@ -80,7 +80,7 @@ class RegisterModal extends Component {
         return (
             <div>
                 <NavLink onClick={this.toggle}  href='#' >
-                    Register
+                    Sign up
                 </NavLink>
                 <Modal isOpen={this.state.modal}  toggle={this.toggle} >
                     <ModalHeader toggle={this.toggle} >Register</ModalHeader>
