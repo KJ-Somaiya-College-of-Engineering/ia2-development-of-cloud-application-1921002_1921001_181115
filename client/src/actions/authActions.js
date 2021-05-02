@@ -13,24 +13,24 @@ import { returnErrors } from './errorActions';
 
 
 //Check for token and load user
-export const loadUser = () => (dispatch, getState) => {
-    //User loading
-    dispatch({ type: USER_LOADING });
+// export const loadUser = () => (dispatch, getState) => {
+//     //User loading
+//     dispatch({ type: USER_LOADING });
     
-    axios.get('/api/auth/user', tokenConfig(getState))
-        .then(res => dispatch({
-            type: USER_LOADED,
-            payload: res.data
-        }))
-        .catch(err => {
-            dispatch(returnErrors(err.response.data, err.response.status));
+//     axios.get('/api/auth/user', tokenConfig(getState))
+//         .then(res => dispatch({
+//             type: USER_LOADED,
+//             payload: res.data
+//         }))
+//         .catch(err => {
+//             dispatch(returnErrors(err.response.data, err.response.status));
             
-            dispatch({
-                type: AUTH_ERROR
-            });
-        })
+//             dispatch({
+//                 type: AUTH_ERROR
+//             });
+//         })
 
-}
+// }
 
 //Register
 export const register = ({ name, email, password }) => dispatch => {
@@ -44,7 +44,7 @@ const config = {
 
 const body = { name, email, password};
 
-axios.post('/api/users', body, config)
+axios.post('http://localhost:4545/', body, config)
 .then(res => {
     dispatch({
         type: REGISTER_SUCCESS,
@@ -73,7 +73,7 @@ export const login = ({ email, password }) => dispatch => {
     
     const body = { email, password};
     
-    axios.post('/api/auth', body, config)
+    axios.post('http://localhost:6545/', body, config)
     .then(res => {
         dispatch({
             type: LOGIN_SUCCESS,
