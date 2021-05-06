@@ -44,7 +44,7 @@ const config = {
 
 const body = { name, email, password};
 
-axios.post('http://localhost:4545/', body, config)
+axios.post('/api/users/', body, config)
 .then(res => {
     dispatch({
         type: REGISTER_SUCCESS,
@@ -73,7 +73,7 @@ export const login = ({ email, password }) => dispatch => {
     
     const body = { email, password};
     
-    axios.post('http://localhost:6545/', body, config)
+    axios.post('/api/auth', body, config)
     .then(res => {
         dispatch({
             type: LOGIN_SUCCESS,

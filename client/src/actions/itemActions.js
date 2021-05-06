@@ -6,7 +6,7 @@ import { returnErrors } from './errorActions';
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
 
-    axios.get('http://localhost:5454/')
+    axios.get('/api/items')
     .then(res => {
         dispatch({
             type:GET_ITEMS,
@@ -21,7 +21,7 @@ export const getItems = () => dispatch => {
 
 export const addItem = (item) => (dispatch, getState) => {
 
-    axios.post('http://localhost:5454/', item, tokenConfig(getState))
+    axios.post('/api/items', item, tokenConfig(getState))
     .then(res => dispatch({
         type:ADD_ITEM,
         payload:res.data
@@ -35,7 +35,7 @@ export const addItem = (item) => (dispatch, getState) => {
 
 
 export const updateItem = (id, name) => (dispatch, getState) => {
-    axios.put(`http://localhost:5454/${id}`,{ name }, tokenConfig(getState))
+    axios.put(`/api/items/${id}`,{ name }, tokenConfig(getState))
     .then(res => dispatch({
         type:UPDATE_ITEM,
         payload: {
@@ -46,8 +46,10 @@ export const updateItem = (id, name) => (dispatch, getState) => {
         returnErrors(err.response.data, err.response.status);
     });
 }
+
+
 export const deleteItem = (id) => (dispatch, getState) => {
-    axios.delete(`http://localhost:5454/${id}`, tokenConfig(getState))
+    axios.delete(`/api/items/${id}`, tokenConfig(getState))
     .then(res => dispatch({
         type:DELETE_ITEM,
         payload: id

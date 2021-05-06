@@ -26,6 +26,16 @@ router.post('/',auth, (req,res) => {
    .then((item) => res.json(item));
 })
 
+router.put('/:id',auth,(req, res) => {
+    const item  = req.body
+
+    Item.findByIdAndUpdate(req.params.id, {name: item.name}, {new: true})
+    .then(item => {
+        res.json({ item })
+    })
+    .catch(err => console.log(err))
+})
+
 // @route DELETE api/items/:id
 // @desc Delete an item
 // @access Private
