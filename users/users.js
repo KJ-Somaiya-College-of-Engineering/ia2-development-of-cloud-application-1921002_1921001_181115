@@ -15,7 +15,8 @@ app.use(cors())
 const User = require('./User');
 
 //DB config
-const db = "mongodb://localhost:27017/mern_shopping_list";
+//const db = "mongodb+srv://todo-list-user:todo-list-user@todo-list.klv0v.mongodb.net/todo-list?retryWrites=true&w=majority";
+const db = "mongodb+srv://pranav:abcd1234@cluster0.slqcc.mongodb.net/mern_shopping?retryWrites=true&w=majority";
 
 
 mongoose
@@ -57,6 +58,7 @@ app.get('/:emailId',(req,res) => {
 // @desc Create a user
 // @access Public
 app.post('/',(req,res) => {
+   console.log("Inside route to register user");
    const { name, email, password } = req.body;
 
    if(!name || !email || !password){
@@ -80,6 +82,7 @@ app.post('/',(req,res) => {
             newUser.password = hash;
             newUser.save()
             .then(user => {
+               console.log("User registered");
                jwt.sign(
                   { id: user.id },
                   "msl_myJwtSecret",
