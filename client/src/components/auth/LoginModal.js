@@ -111,6 +111,7 @@ class LoginModal extends Component {
                             </FormGroup>
 
                                 <Button
+                                type="submit"
                                 color="dark"
                                 style={{marginTop: '2rem', width:'100%'}}>
                                 Login</Button>

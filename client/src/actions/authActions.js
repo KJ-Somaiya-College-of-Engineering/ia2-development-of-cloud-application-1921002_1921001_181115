@@ -34,30 +34,30 @@ import { returnErrors } from './errorActions';
 
 //Register
 export const register = ({ name, email, password }) => dispatch => {
+    console.log("Entered register function");
+    //Setting the headers
+    const config = {
+        headers: {
+            "Content-type": "application/json"
+        }
+    };
 
-//Setting the headers
-const config = {
-    headers: {
-        "Content-type": "application/json"
-    }
-};
+    const body = { name, email, password};
 
-const body = { name, email, password};
-
-axios.post('/api/users/', body, config)
-.then(res => {
-    dispatch({
-        type: REGISTER_SUCCESS,
-        payload: res.data
+    axios.post('http://localhost:4545/', body, config)
+    .then(res => {
+        dispatch({
+            type: REGISTER_SUCCESS,
+            payload: res.data
+        })
     })
-})
-.catch(err => {
-    dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
-    
-    dispatch({
-        type: REGISTER_FAIL
+    .catch(err => {
+        dispatch(returnErrors(err.response.data, err.response.status, 'REGISTER_FAIL'));
+        
+        dispatch({
+            type: REGISTER_FAIL
+        })
     })
-})
 
 }
 
@@ -73,7 +73,7 @@ export const login = ({ email, password }) => dispatch => {
     
     const body = { email, password};
     
-    axios.post('/api/auth', body, config)
+    axios.post('http://localhost:6545/', body, config)
     .then(res => {
         dispatch({
             type: LOGIN_SUCCESS,

@@ -16,6 +16,7 @@ app.use(cors())
 // @desc Post an item
 // @access Public
 app.post('/',(req,res) => {
+   console.log("Entered route to register user");
    const { email, password } = req.body;
 
    if(!email || !password){

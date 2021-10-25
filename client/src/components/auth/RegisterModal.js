@@ -64,6 +64,7 @@ class RegisterModal extends Component {
     }
 
     onSubmit = (e) => {
+        console.log("Entered register function");
         e.preventDefault();
 
         const { name, email, password} = this.state;
@@ -121,6 +122,7 @@ class RegisterModal extends Component {
                             </FormGroup>
 
                                 <Button
+                                type="submit"
                                 color="dark"
                                 style={{marginTop: '2rem', width:'100%'}}>
                                 Register</Button>

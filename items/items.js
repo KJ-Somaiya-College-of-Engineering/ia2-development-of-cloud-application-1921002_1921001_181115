@@ -15,7 +15,7 @@ app.use(cors())
 
 
 //DB config
-const db = "mongodb://localhost:27017/mern_shopping_list";
+const db = "mongodb+srv://pranav:abcd1234@cluster0.slqcc.mongodb.net/mern_shopping?retryWrites=true&w=majority";
 
 
 
