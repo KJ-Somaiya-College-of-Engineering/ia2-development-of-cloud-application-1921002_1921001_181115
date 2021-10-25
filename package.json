@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "client-install": "npm i --prefix client",
-    "start": "concurrently \"cd users && nodemon users.js\" \"cd items && nodemon items.js\" \"cd auth && nodemon auth.js\"",
+    "start:dev": "concurrently \"cd users && nodemon users.js\" \"cd items && nodemon items.js\" \"cd auth && nodemon auth.js\"",
+    "start": "concurrently \"node users/users.js\" \"node items/items.js\" \"node auth/auth.js\"",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\" ",
