@@ -111,7 +111,7 @@ app.post('/',(req,res) => {
    
 })
 
-const port = process.env.PORT || 4545;
+const port = 4545;
 
 var server = app.listen(port, () => console.log(`Users microservice started on port: ${port}`));
 

@@ -74,7 +74,7 @@ app.post('/',(req,res) => {
 //    .catch(err => console.log(err.response))
 // });
 
-const port = process.env.PORT || 6545;
+const port = 6545;
 
 var server = app.listen(port, () => console.log(`Auth microservice started on port: ${port}`));
 

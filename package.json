@@ -6,7 +6,7 @@
   "scripts": {
     "client-install": "npm i --prefix client",
     "start-dev": "concurrently \"cd users && nodemon users.js\" \"cd items && nodemon items.js\" \"cd auth && nodemon auth.js\"",
-    "start": "node server.js",
+    "start": "concurrently \"cd users && node users.js\" \"cd items && node items.js\" \"cd auth && node auth.js\"",
     "start:users": "node users/users.js",
     "start:items": "node items/items.js",
     "start:auth": "node auth/auth.js",
@@ -18,7 +18,7 @@
     "test": "mocha --exit",
     "deploy": "aws s3 sync build/ s3://tharsh1-shopping-list"
   },
-  "author": "Pranav Ahuja",
+  "author": "Harshavardhan Talele",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",

@@ -66,7 +66,7 @@ app.delete('/:id',auth,(req,res) => {
 })
 
 
-const port = process.env.PORT || 5454;
+const port = 5454;
 
 var server = app.listen(port, () => console.log(`Items microservice started on port: ${port}`));
 
