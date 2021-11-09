@@ -6,7 +6,7 @@ import { returnErrors } from './errorActions';
 export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
 
-    axios.get('http://localhost:5454/')
+    axios.get('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:8081/')
     .then(res => {
         dispatch({
             type:GET_ITEMS,
@@ -21,7 +21,7 @@ export const getItems = () => dispatch => {
 
 export const addItem = (item) => (dispatch, getState) => {
 
-    axios.post('http://localhost:5454/', item, tokenConfig(getState))
+    axios.post('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:8081/', item, tokenConfig(getState))
     .then(res => dispatch({
         type:ADD_ITEM,
         payload:res.data

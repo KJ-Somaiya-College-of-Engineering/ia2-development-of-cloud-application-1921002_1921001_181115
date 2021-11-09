@@ -23,7 +23,7 @@ app.post('/',(req,res) => {
       res.status(400).json({ msg: "Please enter all fields" });
    }
 
-   axios.get(`http://localhost:4545/${email}`)
+   axios.get(`http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:4545/${email}`)
    .then(response => {
       console.log(response.data)
       const user = response.data.user

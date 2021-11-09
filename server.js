@@ -64,4 +64,4 @@ const authApp = require("./auth/auth");
 
 var server1 = itemsApp.listen(8081, () => console.log("Items microservice started on port: 8081"));
 var server2 = usersApp.listen(4545, () => console.log("Users microservice started on port: 4545"));
-var server2 = authApp.listen(8080, () => console.log("Auth microservice started on port: 8080"));
+var server3 = authApp.listen(8080, () => console.log("Auth microservice started on port: 8080"));
