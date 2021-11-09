@@ -35,7 +35,7 @@ export const addItem = (item) => (dispatch, getState) => {
 
 
 export const updateItem = (id, name) => (dispatch, getState) => {
-    axios.put(`http://localhost:5454/${id}`,{ name }, tokenConfig(getState))
+    axios.put(`http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:8081/${id}`,{ name }, tokenConfig(getState))
     .then(res => dispatch({
         type:UPDATE_ITEM,
         payload: {
@@ -49,7 +49,7 @@ export const updateItem = (id, name) => (dispatch, getState) => {
 
 
 export const deleteItem = (id) => (dispatch, getState) => {
-    axios.delete(`http://localhost:5454/${id}`, tokenConfig(getState))
+    axios.delete(`http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:8081/${id}`, tokenConfig(getState))
     .then(res => dispatch({
         type:DELETE_ITEM,
         payload: id

@@ -44,7 +44,7 @@ export const register = ({ name, email, password }) => dispatch => {
 
     const body = { name, email, password};
 
-    axios.post('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:80/', body, config)
+    axios.post('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:4545/', body, config)
     .then(res => {
         dispatch({
             type: REGISTER_SUCCESS,
