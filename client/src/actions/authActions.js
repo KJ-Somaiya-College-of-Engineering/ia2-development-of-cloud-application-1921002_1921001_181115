@@ -73,7 +73,7 @@ export const login = ({ email, password }) => dispatch => {
     
     const body = { email, password};
     
-    axios.post('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:80/', body, config)
+    axios.post('http://shoppinglist-env.eba-mewsnumb.ap-south-1.elasticbeanstalk.com:8080/', body, config)
     .then(res => {
         dispatch({
             type: LOGIN_SUCCESS,
