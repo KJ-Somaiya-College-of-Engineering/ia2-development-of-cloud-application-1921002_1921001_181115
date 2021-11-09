@@ -68,7 +68,7 @@ app.delete('/:id',auth,(req,res) => {
 
 const port = 5454;
 
-var server = app.listen(port, () => console.log(`Items microservice started on port: ${port}`));
+//var server = app.listen(port, () => console.log(`Items microservice started on port: ${port}`));
 
-
+module.exports = app;
 // module.exports = router;

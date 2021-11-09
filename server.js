@@ -46,12 +46,22 @@
 //     .listen(port);
 //     module.exports = server
 
-const concurrently = require('concurrently');
-const waitOn = require('wait-on');
+// const concurrently = require('concurrently');
+// const waitOn = require('wait-on');
 
-async function startUp() {
-    concurrently(["concurrently -k npm:start:*"]);
-    await waitOn({ resources: ["tcp:5454", "tcp:4545", "tcp:6545"] });
-}
 
-startUp();
+
+// async function startUp() {
+//     concurrently(["concurrently -k npm:start:*"]);
+//     await waitOn({ resources: ["tcp:5454", "tcp:4545", "tcp:6545"] });
+// }
+
+// startUp();
+
+const itemsApp = require("./items/items");
+const usersApp = require("./users/users");
+const authApp = require("./auth/auth");
+
+var server1 = itemsApp.listen(5454, () => console.log("Items microservice started on port: 5454"));
+var server2 = usersApp.listen(4545, () => console.log("Users microservice started on port: 4545"));
+var server2 = authApp.listen(6545, () => console.log("Auth microservice started on port: 6545"));

@@ -76,7 +76,8 @@ app.post('/',(req,res) => {
 
 const port = 6545;
 
-var server = app.listen(port, () => console.log(`Auth microservice started on port: ${port}`));
+//var server = app.listen(port, () => console.log(`Auth microservice started on port: ${port}`));
 
+module.exports = app;
 
 // module.exports = router;

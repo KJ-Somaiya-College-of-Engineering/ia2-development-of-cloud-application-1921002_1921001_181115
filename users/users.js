@@ -113,7 +113,8 @@ app.post('/',(req,res) => {
 
 const port = 4545;
 
-var server = app.listen(port, () => console.log(`Users microservice started on port: ${port}`));
+//var server = app.listen(port, () => console.log(`Users microservice started on port: ${port}`));
 
+module.exports = app;
 
 // module.exports = router;
